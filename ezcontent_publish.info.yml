@@ -1,0 +1,8 @@
+name: EZContent Publish Feature
+type: module
+description: 'Provides publish features for content editor.'
+package: EZContent Publish
+core_version_requirement: ^8 || ^9
+dependencies:
+  - colorbutton
+  - panelbutton

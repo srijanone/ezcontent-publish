@@ -1,0 +1,8 @@
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: 'EZcontent Publish Layout Manager'
+          items:
+            - AddLayout

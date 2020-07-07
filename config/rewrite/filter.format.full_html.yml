@@ -1,0 +1,55 @@
+dependencies:
+  module:
+    - editor
+    - entity_embed
+    - linkit
+    - media
+filters:
+  filter_align:
+    weight: -49
+  filter_caption:
+    weight: -48
+  filter_htmlcorrector:
+    weight: -46
+  editor_file_reference:
+    weight: -45
+  entity_embed:
+    weight: -47
+  filter_html:
+    weight: -44
+  linkit:
+    weight: -50
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: -40
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: false
+    weight: -41
+    settings:
+      filter_url_length: 72
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -42
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -43
+    settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: -39
+    settings:
+      default_view_mode: default
+      allowed_media_types: {  }
+      allowed_view_modes: {  }
