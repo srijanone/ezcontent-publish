@@ -3,3 +3,5 @@ type: module
 description: 'Provides publish features with ckeditor layoutmanager plugin with bootstrap theme.'
 package: EZContent Publish
 core_version_requirement: ^8 || ^9
+dependencies:
+  - ckeditor_layout_manager
