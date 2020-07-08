@@ -1,10 +1,12 @@
 {
-  "name": "drupal/ezcontent_publish",
+  "name": "srijanone/ezcontent_publish",
   "description": "A feature rich module enhancing the experience for Publishers.",
   "type": "drupal-module",
   "license": "GPL-2.0+",
-  "minimum-stability": "dev",
-  "prefer-stable": true,
+  "homepage": "https://github.com/srijanone/ezcontent_publish",
+  "support": {
+    "issues": "https://github.com/srijanone/ezcontent_publish"
+  },
   "require": {
     "drupal/colorbutton": "^1.2",
     "drupal/panelbutton": "^1.3",
