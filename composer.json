@@ -1,6 +1,6 @@
 {
   "name": "drupal/ezcontent_publish",
-  "description": "A Feature rich stater profile from Srijan.",
+  "description": "A feature rich module enhancing the experience for Publishers.",
   "type": "drupal-module",
   "license": "GPL-2.0+",
   "minimum-stability": "dev",
