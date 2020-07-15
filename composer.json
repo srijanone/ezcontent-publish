@@ -52,5 +52,8 @@
         }
       }
     }
-  ]
+  ],
+  "installer-paths": {
+    "docroot/libraries/{$name}": ["vendor:ckeditor-plugin"]
+  }
 }
