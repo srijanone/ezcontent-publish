@@ -2,20 +2,26 @@
   "name": "srijanone/ezcontent_publish",
   "description": "A feature rich module enhancing the experience for Publishers.",
   "type": "drupal-module",
-  "license": "GPL-2.0+",
+  "license": "GPL-2.0-or-later",
   "homepage": "https://github.com/srijanone/ezcontent_publish",
   "support": {
     "issues": "https://github.com/srijanone/ezcontent_publish"
   },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
   "repositories": {
-    "ckeditor.colorbutton": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    },
+    "colorbutton": {
       "type": "package",
       "package": {
         "name": "ckeditor/colorbutton",
         "version": "4.14.0",
         "type": "drupal-library",
         "extra": {
-          "installer-name": "ckeditor.colorbutton"
+          "installer-name": "colorbutton"
         },
         "dist": {
           "url": "https://download.ckeditor.com/colorbutton/releases/colorbutton_4.14.1.zip",
@@ -26,14 +32,14 @@
         }
       }
     },
-    "ckeditor.panelbutton": {
+    "panelbutton": {
       "type": "package",
       "package": {
         "name": "ckeditor/panelbutton",
         "version": "4.14.0",
         "type": "drupal-library",
         "extra": {
-          "installer-name": "ckeditor.panelbutton"
+          "installer-name": "panelbutton"
         },
         "dist": {
           "url": "https://download.ckeditor.com/panelbutton/releases/panelbutton_4.14.1.zip",
@@ -44,14 +50,14 @@
         }
       }
     },
-    "ckeditor.preview": {
+    "preview": {
       "type": "package",
       "package": {
         "name": "ckeditor/preview",
         "version": "4.14.0",
         "type": "drupal-library",
         "extra": {
-          "installer-name": "ckeditor.preview"
+          "installer-name": "preview"
         },
         "dist": {
           "url": "https://download.ckeditor.com/preview/releases/preview_4.14.1.zip",
@@ -64,11 +70,21 @@
     }
   },
   "require": {
-    "drupal/colorbutton": "^1.2",
-    "drupal/panelbutton": "^1.3",
-    "drupal/ckeditor_layout_manager": "^1.0",
     "ckeditor/colorbutton":  "*",
     "ckeditor/panelbutton":  "*",
-    "ckeditor/preview":  "*"
+    "ckeditor/preview":  "*",
+    "drupal/colorbutton": "^1.2",
+    "drupal/panelbutton": "^1.3",
+    "drupal/ckeditor_layout_manager": "^1.0"
+  },
+  "extra": {
+    "installer-paths": {
+      "docroot/libraries/{$name}": [
+        "type:drupal-library"
+      ],
+      "docroot/modules/contrib/{$name}": [
+        "type:drupal-module"
+      ]
+    }
   }
 }
