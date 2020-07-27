@@ -7,84 +7,9 @@
   "support": {
     "issues": "https://github.com/srijanone/ezcontent_publish"
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
-  "repositories": {
-    "drupal": {
-      "type": "composer",
-      "url": "https://packages.drupal.org/8"
-    },
-    "colorbutton": {
-      "type": "package",
-      "package": {
-        "name": "ckeditor/colorbutton",
-        "version": "4.14.0",
-        "type": "drupal-library",
-        "extra": {
-          "installer-name": "colorbutton"
-        },
-        "dist": {
-          "url": "https://download.ckeditor.com/colorbutton/releases/colorbutton_4.14.1.zip",
-          "type": "zip"
-        },
-        "require": {
-          "composer/installers": "~1.0"
-        }
-      }
-    },
-    "panelbutton": {
-      "type": "package",
-      "package": {
-        "name": "ckeditor/panelbutton",
-        "version": "4.14.0",
-        "type": "drupal-library",
-        "extra": {
-          "installer-name": "panelbutton"
-        },
-        "dist": {
-          "url": "https://download.ckeditor.com/panelbutton/releases/panelbutton_4.14.1.zip",
-          "type": "zip"
-        },
-        "require": {
-          "composer/installers": "~1.0"
-        }
-      }
-    },
-    "preview": {
-      "type": "package",
-      "package": {
-        "name": "ckeditor/preview",
-        "version": "4.14.0",
-        "type": "drupal-library",
-        "extra": {
-          "installer-name": "preview"
-        },
-        "dist": {
-          "url": "https://download.ckeditor.com/preview/releases/preview_4.14.1.zip",
-          "type": "zip"
-        },
-        "require": {
-          "composer/installers": "~1.0"
-        }
-      }
-    }
-  },
   "require": {
-    "ckeditor/colorbutton":  "*",
-    "ckeditor/panelbutton":  "*",
-    "ckeditor/preview":  "*",
     "drupal/colorbutton": "^1.2",
     "drupal/panelbutton": "^1.3",
     "drupal/ckeditor_layout_manager": "^1.0"
-  },
-  "extra": {
-    "installer-paths": {
-      "docroot/libraries/{$name}": [
-        "type:drupal-library"
-      ],
-      "docroot/modules/contrib/{$name}": [
-        "type:drupal-module"
-      ]
-    }
   }
 }
