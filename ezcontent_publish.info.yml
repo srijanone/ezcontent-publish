@@ -8,3 +8,4 @@ dependencies:
   - content_lock_timeout
   - formtips
   - panelbutton
+  - smart_trim
