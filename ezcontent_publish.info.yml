@@ -10,4 +10,5 @@ dependencies:
   - diff
   - formtips
   - panelbutton
+  - smart_trim
   - vertical_tabs_config
