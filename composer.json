@@ -1,5 +1,5 @@
 {
-  "name": "srijanone/ezcontent_publish",
+  "name": "drupal/ezcontent_publish",
   "description": "A feature rich module enhancing the experience for Publishers.",
   "type": "drupal-module",
   "license": "GPL-2.0-or-later",
@@ -7,6 +7,28 @@
   "support": {
     "issues": "https://github.com/srijanone/ezcontent_publish"
   },
+  "authors": [
+    {
+      "name": "Mohammed Arshad Rizwan Ahmed (arshadkhan35)",
+      "homepage": "https://www.drupal.org/u/arshadkhan35",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Saurabh Singh (saurabh_sgh)",
+      "homepage": "https://www.drupal.org/u/saurabh_sgh",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Vaibhav Jain (vaibhavjain)",
+      "homepage": "https://www.drupal.org/u/vaibhavjain",
+      "role": "Maintainer"
+    },
+    {
+      "name": "Vinay Abhang (vinay15)",
+      "homepage": "https://www.drupal.org/u/vinay15",
+      "role": "Maintainer"
+    }
+  ],
   "require": {
     "drupal/colorbutton": "^1.2",
     "drupal/panelbutton": "^1.3",
