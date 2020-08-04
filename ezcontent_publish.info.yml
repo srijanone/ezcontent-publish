@@ -9,6 +9,7 @@ dependencies:
   - content_lock_timeout
   - diff
   - formtips
+  - moderation_note
   - panelbutton
   - smart_trim
   - vertical_tabs_config
