@@ -9,6 +9,7 @@ dependencies:
   - content_lock_timeout
   - diff
   - formtips
+  - lb_ux
   - moderation_note
   - panelbutton
   - paragraphs_ee
