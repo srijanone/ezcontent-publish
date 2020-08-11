@@ -47,7 +47,8 @@
   "extra": {
     "patches": {
       "drupal/lb_ux": {
-        "3106939 - Errors when using with modules that alter a section's contextual menu": "https://www.drupal.org/files/issues/2020-05-22/3106939-4.patch"
+        "3106939 - Errors when using with modules that alter a section's contextual menu": "https://www.drupal.org/files/issues/2020-05-22/3106939-4.patch",
+        "3116402 - The cog icon to edit block settings doesnt display when show content preview is disabled": "https://www.drupal.org/files/issues/2020-05-22/3116402-8.patch"
       },
       "drupal/content_lock": {
         "2919019 - Invalidate node_list cache tag after content locked state update": "https://www.drupal.org/files/issues/content_lock-caching-invalidation-2919019-3.patch"
