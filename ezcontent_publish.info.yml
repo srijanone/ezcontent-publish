@@ -12,6 +12,7 @@ dependencies:
   - lb_ux
   - moderation_note
   - panelbutton
+  - paragraphs_ee
   - smart_trim
   - vertical_tabs_config
   - workbench_reviewer
