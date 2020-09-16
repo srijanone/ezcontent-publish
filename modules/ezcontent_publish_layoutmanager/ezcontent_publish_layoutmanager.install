@@ -1,0 +1,18 @@
+<?php
+
+/**
+ * @file
+ * Installation hooks for ezcontent_publish_layoutmanager module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ezcontent_publish_layoutmanager_install() {
+  $editor = editor_load('full_html');
+  $settings = $editor->getSettings();
+  // Add this icon in the last row.
+  $settings['toolbar']['rows'][count($settings['toolbar']['rows']) - 1][0]['items'][] = 'AddLayout';
+  $editor->setSettings($settings);
+  $editor->save();
+}
