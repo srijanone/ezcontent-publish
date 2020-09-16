@@ -55,6 +55,9 @@
       },
       "drupal/moderation_note": {
         "2954753 - Moderation Note and Paragraphs": "https://www.drupal.org/files/issues/2020-08-11/2954753-26.patch"
+      },
+      "drupal/paragraphs_features": {
+        "Fix CKEditor error on Uncaught TypeError: Cannot read property 'split_text' of undefined": "https://www.drupal.org/files/issues/2020-09-14/3170771-3.patch"
       }
     }
   }
