@@ -1,0 +1,16 @@
+views.view.content:
+  expected_config:
+    display:
+      default:
+        display_options:
+          fields:
+            moderation_state:
+              empty: ''
+  update_actions:
+    change:
+      display:
+        default:
+          display_options:
+            fields:
+              moderation_state:
+                empty: 'N/A'
