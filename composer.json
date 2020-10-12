@@ -55,6 +55,9 @@
       },
       "drupal/moderation_note": {
         "2954753 - Moderation Note and Paragraphs": "https://www.drupal.org/files/issues/2020-08-11/2954753-26.patch"
+      },
+      "drupal/paragraphs_ee": {
+        "3174916 - Inappropriate in between widget in case of paragraphs which references other node with cardinality N": "https://www.drupal.org/files/issues/2020-10-05/3174916-2.patch"
       }
     }
   }
