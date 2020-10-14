@@ -58,6 +58,9 @@
       },
       "drupal/paragraphs_ee": {
         "3174916 - Inappropriate in between widget in case of paragraphs which references other node with cardinality N": "https://www.drupal.org/files/issues/2020-10-05/3174916-2.patch"
+      },
+      "drupal/metatag": {
+        "3057523 - Load metatags asynchronously": "https://www.drupal.org/files/issues/2020-06-03/metatag-async-3057523-61.patch"
       }
     }
   }
