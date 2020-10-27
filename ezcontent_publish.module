@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * Implements hook_menu_local_tasks_alter().
+ */
+function ezcontent_publish_menu_local_tasks_alter(&$data, $route_name) {
+  foreach ($data['tabs'] as &$tabs) {
+    foreach ($tabs as &$tab) {
+      $route_name = $tab['#link']['url']->getRouteName();
+      if ($route_name == 'entity.user.canonical') {
+        $tab['#link']['title'] = t('Dashboard');
+      }
+    }
+  }
+}
