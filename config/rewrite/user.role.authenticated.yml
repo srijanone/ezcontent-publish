@@ -1,7 +1,5 @@
 permissions:
   - 'access content'
-  - 'access moderation notes'
   - 'access shortcuts'
-  - 'create moderation notes'
   - 'use text format basic_html'
   - 'view search api pages'
