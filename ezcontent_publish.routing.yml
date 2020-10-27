@@ -1,0 +1,11 @@
+ezcontent_publish.user_profile:
+  path: '/user/{user}/user_profile'
+  defaults:
+    _entity_view: user.user_profile
+    view_mode: view_mode
+  options:
+    parameters:
+      user:
+        type: 'entity:user'
+  requirements:
+    _permission: 'access user profiles'
