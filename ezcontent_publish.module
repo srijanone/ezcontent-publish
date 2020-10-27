@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * Implements hook_preprocess_menu_local_task().
+ */
+function ezcontent_publish_preprocess_menu_local_task(&$vars) {
+  $routeParams = \Drupal::routeMatch()
+    ->getMasterRouteMatch()
+    ->getRawParameters()
+    ->all();
+  if (in_array('dashboard', $routeParams)) {
+    if ($vars['element']['#link']['url']->getRouteName() == 'ezcontent_publish.user_dashboard') {
+      $vars['is_active'] = TRUE;
+    }
+    else {
+      $vars['is_active'] = FALSE;
+    }
+  }
+}

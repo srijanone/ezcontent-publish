@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: dashboard
+label: Dashboard
+type: 'canonical_entities:user'
+pattern: /%/dashboard
+view_mode: dashboard
+selection_criteria: {  }
+selection_logic: and
+weight: 0
+relationships: {  }

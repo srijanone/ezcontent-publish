@@ -1,0 +1,5 @@
+ezcontent_publish.user_dashboard:
+  title: 'Dashboard'
+  base_route: entity.user.canonical
+  route_name: ezcontent_publish.user_dashboard
+  weight: 100

@@ -42,7 +42,8 @@
     "drupal/moderation_note": "^1.0",
     "drupal/paragraphs_ee": "1.x-dev#6d878980",
     "drupal/workbench_reviewer": "^2.0",
-    "drupal/lb_ux": "^1.0"
+    "drupal/lb_ux": "^1.0",
+    "drupal/view_mode_page": "^4.0"
   },
   "extra": {
     "patches": {

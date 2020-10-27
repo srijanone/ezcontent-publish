@@ -1,0 +1,6 @@
+ezcontent_publish.user_dashboard:
+  path: '/user/{user}/dashboard'
+  defaults:
+    _title: 'Dashboard'
+  requirements:
+    _permission: 'access content'

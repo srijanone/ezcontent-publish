@@ -1,0 +1,36 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.user.dashboard
+    - field.field.user.user.layout_selection
+  module:
+    - layout_builder
+    - layout_discovery
+    - layout_library
+    - user
+third_party_settings:
+  layout_builder:
+    allow_custom: false
+    enabled: true
+    sections:
+      -
+        layout_id: layout_onecol
+        layout_settings:
+          label: ''
+        components: {  }
+        third_party_settings: {  }
+  layout_library:
+    enable: true
+id: user.user.dashboard
+targetEntityType: user
+bundle: user
+mode: dashboard
+content:
+  member_for:
+    weight: 5
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  layout_selection: true
