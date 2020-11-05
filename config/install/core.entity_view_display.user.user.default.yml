@@ -21,7 +21,8 @@ third_party_settings:
         layout_settings:
           label: ''
         components:
-          -
+          b6533f7a-af58-4bd2-a953-28be0123c559:
+            uuid: b6533f7a-af58-4bd2-a953-28be0123c559
             region: content
             configuration:
               id: 'views_block:content-block_1'
@@ -29,11 +30,12 @@ third_party_settings:
               provider: views
               label_display: '0'
               views_label: ''
-              items_per_page: '5'
+              items_per_page: none
               context_mapping: {  }
             additional: {  }
             weight: 0
-          -
+          0041c7f7-0132-4b2c-9295-f57a1ca4643b:
+            uuid: 0041c7f7-0132-4b2c-9295-f57a1ca4643b
             region: content
             configuration:
               id: 'views_block:content-block_2'
@@ -41,7 +43,7 @@ third_party_settings:
               provider: views
               label_display: '0'
               views_label: ''
-              items_per_page: '5'
+              items_per_page: none
               context_mapping: {  }
             additional: {  }
             weight: 1
