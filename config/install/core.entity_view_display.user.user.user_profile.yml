@@ -14,7 +14,7 @@ third_party_settings:
     allow_custom: false
     enabled: false
   layout_library:
-    enable: true
+    enable: false
 id: user.user.user_profile
 targetEntityType: user
 bundle: user

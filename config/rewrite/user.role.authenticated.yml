@@ -2,6 +2,8 @@ permissions:
   - 'access content'
   - 'access moderation notes'
   - 'access shortcuts'
+  - 'configure editable user user layout overrides'
   - 'create moderation notes'
+  - 'ezcontent publish view user profile'
   - 'use text format basic_html'
   - 'view search api pages'
