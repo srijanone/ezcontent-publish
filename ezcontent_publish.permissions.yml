@@ -1,0 +1,3 @@
+ezcontent publish view user profile:
+  title: 'View user profile'
+  description: 'Allow user to view profile tab.'

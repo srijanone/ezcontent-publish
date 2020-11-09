@@ -8,4 +8,4 @@ ezcontent_publish.user_profile:
       user:
         type: 'entity:user'
   requirements:
-    _permission: 'access user profiles'
+    _permission: 'ezcontent publish view user profile'

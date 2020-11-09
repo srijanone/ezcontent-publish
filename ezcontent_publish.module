@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\layout_library\Entity\Layout;
+use Drupal\Core\Entity\EntityInterface;
+
 /**
  * Implements hook_menu_local_tasks_alter().
  */
@@ -11,5 +14,49 @@ function ezcontent_publish_menu_local_tasks_alter(&$data, $route_name) {
         $tab['#link']['title'] = t('Dashboard');
       }
     }
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function ezcontent_publish_entity_insert(EntityInterface $entity) {
+  switch ($entity->getEntityTypeId()) {
+    case 'action':
+      if ($entity->getPlugin()->getPluginId() === 'user_add_role_action') {
+        $labelArg = $entity->label()->getArguments();
+        $roleConfig = $entity->getPlugin()->getConfiguration();
+        $roleId = $roleConfig['rid'];
+        $layout = Layout::create([
+          'id' => $roleId . '_dashboard',
+          'label' => t('@label Dashboard', ['@label' => $labelArg['@label']]),
+          'revision' => FALSE,
+        ]);
+        $layout->set('targetEntityType', 'user');
+        $layout->set('targetBundle', 'user');
+        $layout->save();
+      }
+      break;
+    case 'user':
+      if ($entity->layout_selection->isEmpty()) {
+        $roles = $entity->getRoles();
+        $rolesToExclude = ['anonymous', 'authenticated', 'administrator'];
+        $roles = array_diff($roles, $rolesToExclude);
+        $role = '';
+        if (!empty($roles)) {
+          $role = array_shift($roles);
+        }
+        // Check if dashboard exist for this role
+        if ($role) {
+          $storedLayout = \Drupal::entityTypeManager()
+            ->getStorage('layout')
+            ->load($role . '_dashboard');
+          if ($storedLayout) {
+            $entity->layout_selection->setValue([$storedLayout->id()]);
+            $entity->save();
+          }
+        }
+      }
+      break;
   }
 }
