@@ -9,3 +9,19 @@ ezcontent_publish.user_profile:
         type: 'entity:user'
   requirements:
     _permission: 'ezcontent publish view user profile'
+
+ezcontent_publish.shortcut.link_add:
+  path: '/usershortcut/{shortcut_set}/add-link'
+  defaults:
+    _controller: '\Drupal\shortcut\Controller\ShortcutController::addForm'
+    _title: 'Add link'
+  requirements:
+    _role: 'authenticated'
+
+ezcontent_publish.shortcut_set.customize_form:
+  path: '/usershortcut/{shortcut_set}/customize'
+  defaults:
+    _entity_form: 'shortcut_set.customize'
+    _title: 'List links'
+  requirements:
+    _role: 'authenticated'

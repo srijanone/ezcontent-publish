@@ -60,3 +60,15 @@ function ezcontent_publish_entity_insert(EntityInterface $entity) {
       break;
   }
 }
+
+/**
+ * Implements hook_theme().
+ * {@inheritdoc} 
+ */
+function ezcontent_publish_theme($existing, $type, $theme, $path) {
+  return [
+    'usershortcutblock_template' => [
+      'variables' => ['data' => NULL],
+    ]
+  ];
+}
