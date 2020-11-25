@@ -57,3 +57,14 @@ content:
           easy_access_count: '3'
           dialog_off_canvas: false
     region: content
+  field_meta_tags:
+    weight: 121
+    settings:
+      sidebar: true
+      async_groups:
+        advanced: advanced
+        schema_article: schema_article
+        basic: '0'
+    third_party_settings: {  }
+    type: metatag_async
+    region: content
