@@ -1,7 +1,11 @@
 <?php
 
+use Drupal\Core\Link;
+use Drupal\Core\Url;
 use Drupal\layout_library\Entity\Layout;
 use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Cache\Cache;
 
 /**
  * Implements hook_menu_local_tasks_alter().
@@ -59,4 +63,59 @@ function ezcontent_publish_entity_insert(EntityInterface $entity) {
       }
       break;
   }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ezcontent_publish_theme($existing, $type, $theme, $path) {
+  return [
+    'user_shortcut_block_template' => [
+      'variables' => ['data' => NULL],
+    ]
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ezcontent_publish_form_shortcut_set_customize_form_alter(&$form, $form_state, $form_id) {
+  $currentUser = \Drupal::currentUser();
+  foreach ($form['shortcuts']['links'] as $key => $value) {
+    if (is_numeric($key)) {
+      $form['shortcuts']['links'][$key]['operations']['#links']['edit']['url'] = Url::fromRoute('ezcontent_publish.shortcut.edit_form', array('shortcut' => $key));
+      $form['shortcuts']['links'][$key]['operations']['#links']['delete']['url'] = Url::fromRoute('ezcontent_publish.shortcut.delete_form', array('shortcut' => $key));
+      $currentUserRoles = $currentUser->getRoles();
+      if (!in_array('administrator', $currentUserRoles)) {
+      $addShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut.link_add', array('shortcut_set' => 'shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id()));
+      $addShortcutLink = Link::fromTextAndUrl(t('Add Shortcut'), $addShortcutUrl)->toString();
+        $form['add_shortcut_link'] = [
+          '#markup' => $addShortcutLink
+        ];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_alter().
+ */
+function ezcontent_publish_form_alter(&$form, $form_state, $form_id) {
+  $currentUser = \Drupal::currentUser();
+  if (!in_array('administrator', $currentUser->getRoles())) {
+    $form['shortcuts']['links']['#empty'] = t('No shortcuts available. <a href=":link">Add a shortcut</a>', [':link' => Url::fromRoute('ezcontent_publish.shortcut.link_add', ['shortcut_set' => 'shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id()])->toString()]);
+    if ($form_id === 'shortcut_confirm_delete' || $form_id === 'shortcut_shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id() . '_form' || $form_id === 'shortcut_shortcut_set_' . $currentUser->getUsername() . '_'  . $currentUser->id() . '_add_form') {
+      $form['actions']['submit']['#submit'][] = 'ezcontent_publish_shortcut_form_submit';
+    }
+  }
+}
+
+/**
+ * Implements ezcontent_publish_shortcut_form_submit().
+ */
+function ezcontent_publish_shortcut_form_submit(array $form, $form_state){
+  Cache::invalidateTags(['ezcontent_user_shortcut_block']);
+  $shortcutSet = $form_state->getBuildInfo()['callback_object']->getEntity()->get('shortcut_set')->getValue()[0]['target_id'];
+  $redirectUrl = Url::fromRoute('ezcontent_publish.shortcut_set.customize_form', array('shortcut_set' => $shortcutSet));
+  $form_state->setRedirectUrl($redirectUrl);
 }
