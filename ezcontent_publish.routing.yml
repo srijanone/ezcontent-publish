@@ -11,7 +11,7 @@ ezcontent_publish.user_profile:
     _permission: 'ezcontent publish view user profile'
 
 ezcontent_publish.shortcut.link_add:
-  path: '/usershortcut/{shortcut_set}/add-link'
+  path: '/user/shortcut/{shortcut_set}/link/add'
   defaults:
     _controller: '\Drupal\shortcut\Controller\ShortcutController::addForm'
     _title: 'Add link'
@@ -19,9 +19,25 @@ ezcontent_publish.shortcut.link_add:
     _role: 'authenticated'
 
 ezcontent_publish.shortcut_set.customize_form:
-  path: '/usershortcut/{shortcut_set}/customize'
+  path: '/user/shortcut/{shortcut_set}'
   defaults:
     _entity_form: 'shortcut_set.customize'
     _title: 'List links'
+  requirements:
+    _role: 'authenticated'
+
+ezcontent_publish.shortcut.edit_form:
+  path: '/user/shortcut/link/{shortcut}/edit'
+  defaults:
+    _entity_form: 'shortcut.default'
+    _title: 'Edit'
+  requirements:
+    _role: 'authenticated'
+
+ezcontent_publish.shortcut.delete_form:
+  path: '/user/shortcut/link/{shortcut}/delete'
+  defaults:
+    _entity_form: 'shortcut.delete'
+    _title: 'Delete'
   requirements:
     _role: 'authenticated'
