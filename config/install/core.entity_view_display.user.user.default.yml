@@ -54,7 +54,7 @@ third_party_settings:
               id: ezcontent_user_shortcut_block
               label: 'EzContent User Shortcut Block'
               provider: ezcontent_publish
-              label_display: '0'
+              label_display: visible
               context_mapping: {  }
             additional: {  }
             weight: 0
