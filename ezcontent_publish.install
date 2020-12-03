@@ -72,3 +72,17 @@ function ezcontent_publish_update_8003() {
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
 }
+
+/**
+ * Async metatag load except basic tags.
+ */
+function ezcontent_publish_update_8004() {
+  /** @var \Drupal\update_helper\Updater $updateHelper */
+  $updateHelper = \Drupal::service('update_helper.updater');
+
+  // Execute configuration update definitions with logging of success.
+  $updateHelper->executeUpdate('ezcontent_publish', 'ezcontent_publish_update_8004');
+
+  // Output logged messages to related channel of update execution.
+  return $updateHelper->logger()->output();
+}
