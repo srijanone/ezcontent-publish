@@ -33,7 +33,7 @@ third_party_settings:
               items_per_page: none
               context_mapping: {  }
             additional: {  }
-            weight: 0
+            weight: 1
           -
             uuid: 3401fb4d-c060-4b8d-809d-96ee4a1f7f40
             region: content
@@ -46,7 +46,18 @@ third_party_settings:
               items_per_page: none
               context_mapping: {  }
             additional: {  }
-            weight: 1
+            weight: 2
+          -
+            uuid: 565292da-9634-46fc-8a07-ee12cb667b6d
+            region: content
+            configuration:
+              id: ezcontent_user_shortcut_block
+              label: 'EzContent User Shortcut Block'
+              provider: ezcontent_publish
+              label_display: '0'
+              context_mapping: {  }
+            additional: {  }
+            weight: 0
         third_party_settings: {  }
   layout_library:
     enable: true
