@@ -69,49 +69,54 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
    * {@inheritdoc}
    */
   public function build() {
-
+    $build = [];
     // Getting current user role.
     $currentUserRoles = $this->account->getRoles();
-    if (!in_array('administrator', $currentUserRoles)) {
-      $currentUserId = $this->account->id();
-      $currentUsername = $this->account->getUsername();
-      $currentShortcutset = $this->entityTypeManager
-        ->getStorage('shortcut_set')
-        ->loadByProperties(['id' => 'shortcut_set_' . $currentUsername . '_' . $currentUserId]);
-      // Getting current user shortcut set.
-      $shortcutSet = $this->entityTypeManager
-        ->getListBuilder('shortcut_set');
-      if (!$currentShortcutset) {
-        // Creating default shortcut set for new user.
-        $set = $shortcutSet->getStorage()->create([
-          'id' => 'shortcut_set_' . $currentUsername . '_' . $currentUserId,
-          'label' => $this->t('Default Shortcut Set for @currentUsername', ['@currentUsername' => $currentUsername]),
-        ]);
-        $set->save();
+    if ($this->account->hasPermission('ezcontent user based shortcut')) {
+      if (!in_array('administrator', $currentUserRoles)) {
+        $currentUserId = $this->account->id();
+        $currentUsername = $this->account->getUsername();
+        $currentShortcutset = $this->entityTypeManager
+          ->getStorage('shortcut_set')
+          ->loadByProperties(['id' => 'shortcut_set_' . $currentUsername . '_' . $currentUserId]);
+        // Getting current user shortcut set.
+        $shortcutSet = $this->entityTypeManager
+          ->getListBuilder('shortcut_set');
+        if (!$currentShortcutset) {
+          // Creating default shortcut set for new user.
+          $set = $shortcutSet->getStorage()->create([
+            'id' => 'shortcut_set_' . $currentUsername . '_' . $currentUserId,
+            'label' => $this->t('Default Shortcut Set for @currentUsername', ['@currentUsername' => $currentUsername]),
+          ]);
+          $set->save();
+        }
+        $shortcutSetId = 'shortcut_set_' . $currentUsername . '_' . $currentUserId;
+        $shortcutObj = $this->getUserShortcutLinks($shortcutSetId);
       }
-      $shortcutSetId = 'shortcut_set_' . $currentUsername . '_' . $currentUserId;
-      $shortcutObj = $this->getUserShortcutLinks($shortcutSetId);
-    }
-    else {
-      $shortcutSetId = 'default';
-      $shortcutObj = $this->getUserShortcutLinks($shortcutSetId);
-    }
+      else {
+        $shortcutSetId = 'default';
+        $shortcutObj = $this->getUserShortcutLinks($shortcutSetId);
+      }
 
-    return [
-      '#theme' => 'user_shortcut_block_template',
-      '#data' => $shortcutObj,
-      '#cache' => [
-        'tags' => ['config:shortcut.set.'.$shortcutSetId],
-      ],
-    ];
+      $build = [
+        '#theme' => 'user_shortcut_block_template',
+        '#data' => $shortcutObj,
+        '#cache' => [
+          'tags' => ['config:shortcut.set.' . $shortcutSetId],
+        ],
+      ];
+      return $build;
+    }   
+    return $build;
   }
 
   /**
    * Implements get_usershortcut_links().
    */
   public function getUserShortcutLinks($currentUserShortcutSet) {
+    $currentUrl = ltrim(\Drupal::service('path.current')->getPath(), '/');
     // Building Add link URL.
-    $addShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut.link_add', ['shortcut_set' => $currentUserShortcutSet]);
+    $addShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut.link_add', ['shortcut_set' => $currentUserShortcutSet], ['query' => ['destination' => $currentUrl]]);
     $addShortcutLink = Link::fromTextAndUrl(t('Add Shortcut'), $addShortcutUrl)->toRenderable();
     // Building Operation link URL.
     $operationShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut_set.customize_form', ['shortcut_set' => $currentUserShortcutSet]);
