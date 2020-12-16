@@ -87,7 +87,8 @@ function ezcontent_publish_form_shortcut_set_customize_form_alter(&$form, $form_
       $form['shortcuts']['links'][$key]['operations']['#links']['delete']['url'] = Url::fromRoute('ezcontent_publish.shortcut.delete_form', array('shortcut' => $key));
       $currentUserRoles = $currentUser->getRoles();
       if (!in_array('administrator', $currentUserRoles)) {
-        $addShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut.link_add', array('shortcut_set' => 'shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id()));
+        $currentUrl = ltrim(\Drupal::service('path.current')->getPath(), '/');
+        $addShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut.link_add', array('shortcut_set' => 'shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id()), ['query' => ['destination' => $currentUrl]]);
         $addShortcutLink = Link::fromTextAndUrl(t('Add Shortcut'), $addShortcutUrl)->toString();
         $form['add_shortcut_link'] = [
           '#markup' => $addShortcutLink
@@ -109,7 +110,6 @@ function ezcontent_publish_form_alter(&$form, $form_state, $form_id) {
     'shortcut_default_form',
     'shortcut_confirm_delete',
     'shortcut_shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id() . '_form',
-    'shortcut_shortcut_set_' . $currentUser->getUsername() . '_'  . $currentUser->id() . '_add_form',
   ];
   if (in_array($form_id, $formIds)) {
     $form['actions']['submit']['#submit'][] = 'ezcontent_publish_shortcut_form_submit';

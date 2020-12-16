@@ -1,3 +1,6 @@
 ezcontent publish view user profile:
   title: 'View user profile'
   description: 'Allow user to view profile tab.'
+ezcontent shortcut set creation:
+  title: 'Allow user to have shortcut set'
+  description: 'Permission for roles to enable automatic user shortcut set generation on user login.'
