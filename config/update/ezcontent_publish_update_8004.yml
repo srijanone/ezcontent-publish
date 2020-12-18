@@ -7,3 +7,9 @@ user.role.authenticated:
       permissions:
         - 'configure editable user user layout overrides'
         - 'ezcontent publish view user profile'
+user.role.editor:
+  expected_config: { }
+  update_actions:
+    add:
+      permissions:
+        - 'ezcontent shortcut set creation'
