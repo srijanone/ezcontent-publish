@@ -38,7 +38,7 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
    * @param mixed $plugin_definition
    * @param \Drupal\Core\Session\AccountInterface $account
    *   The current user.
-   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_manager
+   * @param \Drupal\Core\Entity\EntityTypeManagerInterface $entity_type_manager
    *   The entity type manager.
    */
   public function __construct(array $configuration, $plugin_id, $plugin_definition, AccountInterface $account, EntityTypeManagerInterface $entity_type_manager) {
@@ -70,9 +70,10 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
    */
   public function build() {
     $build = [];
+    // Getting current user role.
+    $currentUserRoles = $this->account->getRoles();
     if ($this->account->hasPermission('ezcontent shortcut set creation') && $this->account->id() != '1') {
-      // Getting current user role.
-      if (!in_array('administrator', $this->account->getRoles())) {
+      if (!in_array('administrator', $currentUserRoles)) {
         $currentUserId = $this->account->id();
         $currentUsername = $this->account->getUsername();
         $currentShortcutset = $this->entityTypeManager
@@ -99,6 +100,11 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
 
       $build = [
         '#theme' => 'user_shortcut_block_template',
+        '#attached' => [
+          'library' => [
+            'core/drupal.dialog.ajax',
+          ],
+        ],
         '#data' => $shortcutObj,
         '#cache' => [
           'tags' => ['config:shortcut.set.' . $shortcutSetId],
@@ -129,7 +135,24 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
       $shortcutLink = $currentUserShortcutObj->get('link')->first()->getUrl();
       $shortcutObj['links'][] = Link::fromTextAndUrl($shortcutTitle, $shortcutLink)->toRenderable();
     }
+    $addShortcutLink['#attributes'] = [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'dialog',
+      'data-dialog-renderer' => 'off_canvas',
+      'data-dialog-options' => json_encode([
+        'width' => '50%',
+      ]),
+    ];
     $shortcutObj['operations']['add_link'] = $addShortcutLink;
+
+    $operationShortcutLink['#attributes'] = [
+      'class' => ['use-ajax'],
+      'data-dialog-type' => 'dialog',
+      'data-dialog-renderer' => 'off_canvas',
+      'data-dialog-options' => json_encode([
+        'width' => '40%',
+      ]),
+    ];
     $shortcutObj['operations']['manage_link'] = $operationShortcutLink;
 
     return $shortcutObj;
