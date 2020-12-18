@@ -17,3 +17,9 @@ core.entity_form_display.node.article.default:
           third_party_settings: {  }
           type: metatag_async
           region: content
+user.role.editor:
+  expected_config: {  }
+  update_actions:
+    add:
+      permissions:
+        - 'ezcontent shortcut set creation'
