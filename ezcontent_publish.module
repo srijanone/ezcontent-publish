@@ -84,16 +84,23 @@ function ezcontent_publish_form_shortcut_set_customize_form_alter(&$form, $form_
   foreach ($form['shortcuts']['links'] as $key => $value) {
     if (is_numeric($key)) {
       $form['shortcuts']['links'][$key]['operations']['#links']['edit']['url'] = Url::fromRoute('ezcontent_publish.shortcut.edit_form', array('shortcut' => $key));
-      $form['shortcuts']['links'][$key]['operations']['#links']['delete']['url'] = Url::fromRoute('ezcontent_publish.shortcut.delete_form', array('shortcut' => $key));
-      $currentUserRoles = $currentUser->getRoles();
-      if (!in_array('administrator', $currentUserRoles)) {
-        $currentUrl = ltrim(\Drupal::service('path.current')->getPath(), '/');
-        $addShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut.link_add', array('shortcut_set' => 'shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id()), ['query' => ['destination' => $currentUrl]]);
-        $addShortcutLink = Link::fromTextAndUrl(t('Add Shortcut'), $addShortcutUrl)->toString();
-        $form['add_shortcut_link'] = [
-          '#markup' => $addShortcutLink
+      $form['shortcuts']['links'][$key]['operations']['#links']['edit']['attributes'] = [
+          'class' => ['use-ajax'],
+          'data-dialog-type' => 'dialog',
+          'data-dialog-renderer' => 'off_canvas',
+          'data-dialog-options' => json_encode([
+              'width' => '50%',
+          ]),
         ];
-      }
+      $form['shortcuts']['links'][$key]['operations']['#links']['delete']['url'] = Url::fromRoute('ezcontent_publish.shortcut.delete_form', array('shortcut' => $key));
+      $form['shortcuts']['links'][$key]['operations']['#links']['delete']['attributes'] = [
+          'class' => ['use-ajax'],
+          'data-dialog-type' => 'dialog',
+          'data-dialog-renderer' => 'off_canvas',
+          'data-dialog-options' => json_encode([
+              'width' => '30%',
+          ]),
+        ];
     }
   }
 }
@@ -115,6 +122,7 @@ function ezcontent_publish_form_alter(&$form, $form_state, $form_id) {
   ];
   if (in_array($form_id, $formIds)) {
     $form['actions']['submit']['#submit'][] = 'ezcontent_publish_shortcut_form_submit';
+    $form['actions']['cancel']['#url'] = Url::fromRoute('user.page');
   }
 }
 
@@ -123,8 +131,7 @@ function ezcontent_publish_form_alter(&$form, $form_state, $form_id) {
  */
 function ezcontent_publish_shortcut_form_submit(array $form, $form_state) {
   if (!in_array('administrator', \Drupal::currentUser()->getRoles())) {
-    $shortcutSet = $form_state->getFormObject()->getEntity()->get('shortcut_set')->getValue()[0]['target_id'];
-    $redirectUrl = Url::fromRoute('ezcontent_publish.shortcut_set.customize_form', array('shortcut_set' => $shortcutSet));
+    $redirectUrl = Url::fromRoute('user.page');
     $form_state->setRedirectUrl($redirectUrl);
   }
 }
