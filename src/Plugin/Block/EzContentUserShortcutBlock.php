@@ -70,10 +70,9 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
    */
   public function build() {
     $build = [];
-    // Getting current user role.
-    $currentUserRoles = $this->account->getRoles();
-    if ($this->account->hasPermission('ezcontent user based shortcut')) {
-      if (!in_array('administrator', $currentUserRoles)) {
+    if ($this->account->hasPermission('ezcontent shortcut set creation') && $this->account->id() != '1') {
+      // Getting current user role.
+      if (!in_array('administrator', $this->account->getRoles())) {
         $currentUserId = $this->account->id();
         $currentUsername = $this->account->getUsername();
         $currentShortcutset = $this->entityTypeManager
@@ -106,7 +105,7 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
         ],
       ];
       return $build;
-    }   
+    }
     return $build;
   }
 
