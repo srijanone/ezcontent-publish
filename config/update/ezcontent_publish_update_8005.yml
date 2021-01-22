@@ -1,0 +1,26 @@
+views.view.content_moderation_view_blocks:
+  expected_config:
+    display:
+      default:
+        display_options:
+          sorts: {  }
+  update_actions:
+    display:
+      default:
+        display_options:
+          sorts:
+            changed_1:
+              admin_label: ''
+              entity_field: changed
+              entity_type: node
+              expose:
+                label: ''
+              exposed: false
+              field: changed
+              granularity: second
+              group_type: group
+              id: changed_1
+              order: DESC
+              plugin_id: date
+              relationship: none
+              table: node_field_data
