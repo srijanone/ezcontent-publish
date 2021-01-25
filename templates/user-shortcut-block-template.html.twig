@@ -1,12 +1,12 @@
-<section class="user-shortcuts-block-wrapper" style="background-color: #EEEEFF">
+<section class="user-shortcuts-block-wrapper">
   <div class="shorcut-operation">
     {% for key,link in data.operations %}
-      <div class="btn button--primary" style="padding: 5px 10px; background-color: #A9A9A9; margin-bottom: 20px">{{ link }}</div>
+      <div class="btn button--primary">{{ link }}</div>
     {% endfor %}
   </div>
   <div class="user-shortcut-block">
     {% for link in data.links %}
-      <div class="btn button--action button--primary" style="margin: 5px; background-color: #EEEEEE;">{{ link }}</div>
+      <div class="btn button--action button--primary">{{ link }}</div>
     {% endfor %}
   </div>
 </section>
