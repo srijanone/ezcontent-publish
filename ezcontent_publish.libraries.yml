@@ -1,0 +1,4 @@
+ezcontent_shortcut:
+  css:
+    theme:
+      css/user_shortcut.css: {}
