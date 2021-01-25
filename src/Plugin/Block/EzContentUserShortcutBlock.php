@@ -103,6 +103,7 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
         '#attached' => [
           'library' => [
             'core/drupal.dialog.ajax',
+            'ezcontent_publish/ezcontent_shortcut'
           ],
         ],
         '#data' => $shortcutObj,
