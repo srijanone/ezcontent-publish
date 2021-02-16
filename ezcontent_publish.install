@@ -5,6 +5,9 @@
  * Install file for ezcontent_publish.
  */
 
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
 /**
  * Added empty result behaviour for moderation state.
  */
@@ -45,4 +48,11 @@ function ezcontent_publish_update_8003() {
 
   // Output logged messages to related channel of update execution.
   return $updateHelper->logger()->output();
+}
+
+/**
+ * Empty update for rebuilding.
+ */
+function ezcontent_publish_update_8004() {
+
 }
