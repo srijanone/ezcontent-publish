@@ -13,7 +13,7 @@ dependencies:
     - views
 third_party_settings:
   layout_builder:
-    allow_custom: true
+    allow_custom: false
     enabled: true
     sections:
       -
