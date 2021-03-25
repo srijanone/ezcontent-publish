@@ -128,9 +128,12 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
     $operationShortcutUrl = Url::fromRoute('ezcontent_publish.shortcut_set.customize_form', ['shortcut_set' => $currentUserShortcutSet]);
     $operationShortcutLink = Link::fromTextAndUrl(t('Visit Shortcuts'), $operationShortcutUrl)->toRenderable();
     // Loading current user shortcuts for display.
-    $currentUserShortcuts = $this->entityTypeManager
-      ->getStorage('shortcut')
-      ->loadByProperties(['shortcut_set' => $currentUserShortcutSet]);
+    $entityStorage = $this->entityTypeManager->getStorage('shortcut');
+    $query_result = $entityStorage->getQuery()
+      ->condition('shortcut_set', $currentUserShortcutSet)
+      ->sort('weight', 'ASC')
+      ->execute();
+    $currentUserShortcuts = $entityStorage->loadMultiple($query_result);
     foreach ($currentUserShortcuts as $key => $currentUserShortcutObj) {
       $shortcutTitle = $currentUserShortcutObj->get('title')->value;
       $shortcutLink = $currentUserShortcutObj->get('link')->first()->getUrl();
