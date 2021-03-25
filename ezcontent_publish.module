@@ -130,8 +130,6 @@ function ezcontent_publish_form_alter(&$form, $form_state, $form_id) {
  * Implements ezcontent_publish_shortcut_form_submit().
  */
 function ezcontent_publish_shortcut_form_submit(array $form, $form_state) {
-  if (!in_array('administrator', \Drupal::currentUser()->getRoles())) {
     $redirectUrl = Url::fromRoute('user.page');
     $form_state->setRedirectUrl($redirectUrl);
-  }
 }
