@@ -80,27 +80,29 @@ function ezcontent_publish_theme($existing, $type, $theme, $path) {
  * Implements hook_form_FORM_ID_alter().
  */
 function ezcontent_publish_form_shortcut_set_customize_form_alter(&$form, $form_state, $form_id) {
-  $currentUser = \Drupal::currentUser();
-  foreach ($form['shortcuts']['links'] as $key => $value) {
-    if (is_numeric($key)) {
-      $form['shortcuts']['links'][$key]['operations']['#links']['edit']['url'] = Url::fromRoute('ezcontent_publish.shortcut.edit_form', array('shortcut' => $key));
-      $form['shortcuts']['links'][$key]['operations']['#links']['edit']['attributes'] = [
+  $route_name = \Drupal::routeMatch();
+  if ($route_name->getRouteName() != 'entity.shortcut_set.customize_form') {
+    foreach ($form['shortcuts']['links'] as $key => $value) {
+      if (is_numeric($key)) {
+        $form['shortcuts']['links'][$key]['operations']['#links']['edit']['url'] = Url::fromRoute('ezcontent_publish.shortcut.edit_form', ['shortcut' => $key]);
+        $form['shortcuts']['links'][$key]['operations']['#links']['edit']['attributes'] = [
           'class' => ['use-ajax'],
           'data-dialog-type' => 'dialog',
           'data-dialog-renderer' => 'off_canvas',
           'data-dialog-options' => json_encode([
-              'width' => '50%',
+            'width' => '50%',
           ]),
         ];
-      $form['shortcuts']['links'][$key]['operations']['#links']['delete']['url'] = Url::fromRoute('ezcontent_publish.shortcut.delete_form', array('shortcut' => $key));
-      $form['shortcuts']['links'][$key]['operations']['#links']['delete']['attributes'] = [
+        $form['shortcuts']['links'][$key]['operations']['#links']['delete']['url'] = Url::fromRoute('ezcontent_publish.shortcut.delete_form', ['shortcut' => $key]);
+        $form['shortcuts']['links'][$key]['operations']['#links']['delete']['attributes'] = [
           'class' => ['use-ajax'],
           'data-dialog-type' => 'dialog',
           'data-dialog-renderer' => 'off_canvas',
           'data-dialog-options' => json_encode([
-              'width' => '30%',
+            'width' => '30%',
           ]),
         ];
+      }
     }
   }
 }
@@ -130,6 +132,9 @@ function ezcontent_publish_form_alter(&$form, $form_state, $form_id) {
  * Implements ezcontent_publish_shortcut_form_submit().
  */
 function ezcontent_publish_shortcut_form_submit(array $form, $form_state) {
+  $route_name = \Drupal::routeMatch();
+  if (strpos($route_name->getRouteName() , 'ezcontent_publish') !== false) {
     $redirectUrl = Url::fromRoute('user.page');
     $form_state->setRedirectUrl($redirectUrl);
+  }
 }
