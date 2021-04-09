@@ -113,14 +113,14 @@ function ezcontent_publish_form_shortcut_set_customize_form_alter(&$form, $form_
 function ezcontent_publish_form_alter(&$form, $form_state, $form_id) {
   $currentUser = \Drupal::currentUser();
   if ($currentUser->id() != '1' ) {
-    $form['shortcuts']['links']['#empty'] = t('No shortcuts available. <a href=":link">Add a shortcut</a>', [':link' => Url::fromRoute('ezcontent_publish.shortcut.link_add', ['shortcut_set' => 'shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id()])->toString()]);
+    $form['shortcuts']['links']['#empty'] = t('No shortcuts available. <a href=":link">Add a shortcut</a>', [':link' => Url::fromRoute('ezcontent_publish.shortcut.link_add', ['shortcut_set' => 'shortcut_set_' . $currentUser->getAccountName() . '_' . $currentUser->id()])->toString()]);
   }
   $formIds = [
     'shortcut_default_add_form',
     'shortcut_set_customize_form',
     'shortcut_default_form',
     'shortcut_confirm_delete',
-    'shortcut_shortcut_set_' . $currentUser->getUsername() . '_' . $currentUser->id() . '_form',
+    'shortcut_shortcut_set_' . $currentUser->getAccountName() . '_' . $currentUser->id() . '_form',
   ];
   if (in_array($form_id, $formIds)) {
     $form['actions']['submit']['#submit'][] = 'ezcontent_publish_shortcut_form_submit';
