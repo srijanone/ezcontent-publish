@@ -55,9 +55,6 @@
       },
       "drupal/metatag": {
         "3057523 - Load metatags asynchronously": "https://www.drupal.org/files/issues/2020-06-03/metatag-async-3057523-61.patch"
-      },
-      "drupal/workbench_reviewer": {
-        "Drupal 9 Readiness": "https://www.drupal.org/files/issues/2020-04-16/workbench_reviewer-drupal_9_readiness-3128189-1.patch"
       }
     }
   }
