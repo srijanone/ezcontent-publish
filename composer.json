@@ -54,7 +54,7 @@
         "3116402 - The cog icon to edit block settings doesnt display when show content preview is disabled": "https://www.drupal.org/files/issues/2020-05-22/3116402-8.patch"
       },
       "drupal/metatag": {
-        "3057523 - Load metatags asynchronously": "https://www.drupal.org/files/issues/2022-07-13/3057523-81-metatag-async-click-trigger-accessibility.patch"
+        "3057523 - Load metatags asynchronously": "https://www.drupal.org/files/issues/2022-07-14/3057523-85-metatag-async-click-trigger-accessibility.patch"
       }
     }
   }
