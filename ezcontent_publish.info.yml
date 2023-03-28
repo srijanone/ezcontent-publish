@@ -9,7 +9,6 @@ dependencies:
   - content_lock:content_lock_timeout
   - diff:diff
   - formtips:formtips
-  - lb_ux:lb_ux
   - panelbutton:panelbutton
   - paragraphs_ee:paragraphs_ee
   - smart_trim:smart_trim
