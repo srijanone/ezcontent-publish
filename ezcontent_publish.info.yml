@@ -2,14 +2,13 @@ name: EZContent Publish Feature
 type: module
 description: 'Provides publish features for content editor.'
 package: EZContent Publish
-core_version_requirement: ^8.8 || ^9
+core_version_requirement: ^8.8 || ^9 || ^10
 dependencies:
   - autosave_form:autosave_form
   - colorbutton:colorbutton
   - content_lock:content_lock_timeout
   - diff:diff
   - formtips:formtips
-  - lb_ux:lb_ux
   - panelbutton:panelbutton
   - paragraphs_ee:paragraphs_ee
   - smart_trim:smart_trim
