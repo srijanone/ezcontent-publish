@@ -132,6 +132,7 @@ class EzContentUserShortcutBlock extends BlockBase implements ContainerFactoryPl
     $query_result = $entityStorage->getQuery()
       ->condition('shortcut_set', $currentUserShortcutSet)
       ->sort('weight', 'ASC')
+      ->accessCheck(TRUE)
       ->execute();
     $currentUserShortcuts = $entityStorage->loadMultiple($query_result);
     foreach ($currentUserShortcuts as $key => $currentUserShortcutObj) {
