@@ -40,7 +40,7 @@
       "drupal/panelbutton":"^1.5",
       "drupal/ckeditor_layout_manager":"1.0.x-dev@dev",
       "drupal/content_lock":"^2.3",
-      "drupal/formtips":"dev-3330266-drupal-10-compatibility",
+      "drupal/formtips":"^1.6",
       "drupal/vertical_tabs_config":"^2.0",
       "drupal/diff":"^1.1",
       "drupal/autosave_form":"^1.4",
