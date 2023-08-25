@@ -54,6 +54,9 @@
          },
          "drupal/metatag":{
             "3057523 - Load metatags asynchronously":"https://www.drupal.org/files/issues/2022-07-14/3057523-85-metatag-async-click-trigger-accessibility.patch"
+         },
+         "drupal/paragraphs_features":{
+          "Feature For Dialog box ": "https://git.drupalcode.org/project/paragraphs_features/-/merge_requests/12.patch"
          }
       }
    }
