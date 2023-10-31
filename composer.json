@@ -45,6 +45,9 @@
    },
    "extra":{
       "patches":{
+         "drupal/autosave_form":{
+            "3355495 - PHP 8.2 deprecation issue with AutosaveFormBuilder":"https://www.drupal.org/files/issues/2023-04-20/autosave_form-dynamic-property-deprecation.patch"
+         },
          "drupal/content_lock":{
             "2919019 - Invalidate node_list cache tag after content locked state update":"https://www.drupal.org/files/issues/content_lock-caching-invalidation-2919019-3.patch"
          },
