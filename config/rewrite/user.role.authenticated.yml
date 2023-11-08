@@ -4,4 +4,3 @@ permissions:
   - 'configure editable user user layout overrides'
   - 'ezcontent publish view user profile'
   - 'use text format basic_html'
-  - 'view search api pages'
