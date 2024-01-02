@@ -1,0 +1,7 @@
+uuid: 0a0f2ea3-9968-45c5-a6a8-71f30ad25eb9
+langcode: en-gb
+status: true
+dependencies: {  }
+id: ezcontent_components
+label: 'EzContent Components'
+weight: null

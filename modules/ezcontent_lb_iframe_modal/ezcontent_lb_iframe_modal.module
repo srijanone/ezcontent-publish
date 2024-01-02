@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function ezcontent_lb_iframe_modal_install() {
+   \Drupal::service('module_installer')->uninstall(['lb_direct_add']);
+}
