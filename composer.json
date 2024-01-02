@@ -30,7 +30,7 @@
       }
    ],
    "require":{
-			"drupal/ckeditor5_font": "^1.1@beta",
+	  "drupal/ckeditor5_font": "^1.1@beta",
       "drupal/ckeditor_layout_manager":"1.0.x-dev@dev",
       "drupal/content_lock":"^2.3",
       "drupal/formtips":"^1.6",
