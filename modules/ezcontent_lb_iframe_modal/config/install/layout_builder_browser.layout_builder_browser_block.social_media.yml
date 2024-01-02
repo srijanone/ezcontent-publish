@@ -1,0 +1,11 @@
+uuid: 3b6fcd5a-e894-4293-b437-c765449f1d7a
+langcode: en-gb
+status: true
+dependencies: {  }
+id: social_media
+block_id: 'inline_block:social_media'
+category: ezcontent_components
+label: 'Social Media'
+image_path: 'https://ezcontent.srijan.net/sites/default/files/2020-10/assets-default-icon_0.png'
+image_alt: social-media
+weight: -100

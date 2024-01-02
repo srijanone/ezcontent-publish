@@ -1,0 +1,11 @@
+uuid: 8a4d74b4-3c9b-44cc-9cf6-783bbc986a69
+langcode: en-gb
+status: true
+dependencies: {  }
+id: map_component
+block_id: 'inline_block:map_block'
+category: ezcontent_components
+label: 'Map Component'
+image_path: 'https://ezcontent.srijan.net/sites/default/files/2020-10/map_1.png'
+image_alt: map-component
+weight: -100

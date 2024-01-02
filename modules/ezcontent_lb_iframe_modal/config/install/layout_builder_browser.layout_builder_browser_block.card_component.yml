@@ -1,0 +1,11 @@
+uuid: fc3618ee-0044-4c08-a4d0-8390b0061bc2
+langcode: en-gb
+status: true
+dependencies: {  }
+id: card_component
+block_id: 'inline_block:cards'
+category: ezcontent_components
+label: 'Card Component'
+image_path: 'https://ezcontent.srijan.net/sites/default/files/2020-10/cards_1.png'
+image_alt: card-component
+weight: -100

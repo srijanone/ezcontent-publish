@@ -1,0 +1,11 @@
+uuid: 85e478b9-5dbe-4aa5-b2f9-36ebdcfc4c83
+langcode: en-gb
+status: true
+dependencies: {  }
+id: text_component
+block_id: 'inline_block:text_block'
+category: ezcontent_components
+label: 'Text Component'
+image_path: 'https://ezcontent.srijan.net/sites/default/files/2020-10/text_1.png'
+image_alt: text-component
+weight: -100
