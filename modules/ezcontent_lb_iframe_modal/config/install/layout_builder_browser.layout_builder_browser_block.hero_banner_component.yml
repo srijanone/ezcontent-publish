@@ -1,0 +1,11 @@
+uuid: 95aaca6e-f68c-4b40-9966-bb3333a6066c
+langcode: en-gb
+status: true
+dependencies: {  }
+id: hero_banner_component
+block_id: 'inline_block:hero_media_block'
+category: ezcontent_components
+label: 'Hero Banner Component'
+image_path: 'https://ezcontent.srijan.net/sites/default/files/2020-10/hero_media-default-icon.png'
+image_alt: hero-banner-component
+weight: -100
