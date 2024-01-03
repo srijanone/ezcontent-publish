@@ -1,0 +1,11 @@
+uuid: fdad3625-507c-4056-b6aa-384b22759e24
+langcode: en-gb
+status: true
+dependencies: {  }
+id: alert_banner_component
+block_id: 'inline_block:alert_banner'
+category: ezcontent_components
+label: 'Alert Banner Component'
+image_path: 'https://ezcontent.srijan.net/sites/default/files/2020-10/view_1.png'
+image_alt: alert-banner-component
+weight: -100

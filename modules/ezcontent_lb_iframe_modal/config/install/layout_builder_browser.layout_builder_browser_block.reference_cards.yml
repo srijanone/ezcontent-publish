@@ -1,0 +1,11 @@
+uuid: 9490266f-5889-4cc4-aa47-c6e700d341ce
+langcode: en-gb
+status: true
+dependencies: {  }
+id: reference_cards
+block_id: 'inline_block:referenced_cards'
+category: ezcontent_components
+label: 'Reference Cards'
+image_path: 'https://ezcontent.srijan.net/sites/default/files/2020-10/referenced_1.png'
+image_alt: reference-cards
+weight: -100
