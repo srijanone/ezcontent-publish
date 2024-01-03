@@ -1,0 +1,17 @@
+name: EZContent LB Iframe Modal Feature
+type: module
+description: 'Render Layout Builder edit forms in an iframe, using the admin theme.'
+package: EZContent LB Iframe Modal
+core_version_requirement: ^9.3 || ^10
+dependencies:
+  - layout_builder_browser:layout_builder_browser
+  - ezcontent_block_alert_banner:ezcontent_block_alert_banner
+  - ezcontent_block_cards:ezcontent_block_cards
+  - ezcontent_block_embed:ezcontent_block_cards
+  - ezcontent_block:ezcontent_block
+  - ezcontent_block_hero_media:ezcontent_block_hero_media
+  - ezcontent_block_map:ezcontent_block_map
+  - ezcontent_block_media:ezcontent_block_media
+  - ezcontent_block_referenced_cards:ezcontent_block_referenced_cards
+  - ezcontent_block_social_media:ezcontent_block_social_media
+  - ezcontent_block_text:ezcontent_block_text
