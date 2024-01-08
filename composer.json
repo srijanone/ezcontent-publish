@@ -41,7 +41,7 @@
       "drupal/paragraphs_ee":"2.1.x-dev@dev",
       "drupal/workbench_reviewer":"^3.0@beta",
       "drupal/layoutbuilder_extras":"^1.0",
-	  "drupal/layout_builder_browser": "^1.6"
+      "drupal/layout_builder_browser": "^1.6"
    },
    "extra":{
       "patches":{
