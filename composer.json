@@ -60,7 +60,8 @@
             "3057523 - Load metatags asynchronously":"https://www.drupal.org/files/issues/2022-07-14/3057523-85-metatag-async-click-trigger-accessibility.patch"
          },
          "drupal/paragraphs_features":{
-          "Feature For Dialog box ": "https://git.drupalcode.org/project/paragraphs_features/-/merge_requests/12.patch"
+          "Feature For Dialog box ": "https://git.drupalcode.org/project/paragraphs_features/-/merge_requests/12.patch",
+          "Cannot read properties of undefined (reading 'add_in_between') - 3378933": "https://www.drupal.org/files/issues/2023-08-03/paragraphs_features.add_in_between.patch"
          }
       }
    }
